@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>来啊,快活啊,反正有大把时光</title>
+</head>
+
+<body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+</body>
+
+</html>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var imgNames = ["birds.png", "sky.png", "land.png", "pipe1.png", "pipe2.png"];
+
+
+    loadImages(imgNames, function (imgs) {
+        var roles = []
+        var flag = true;
+        //创建小鸟对象
+        var bird = new Bird({
+            ctx: ctx,
+            img: imgs["birds.png"]
+        });
+        roles.push(bird)
+
+
+        //创建天空
+        var sky = new Sky({
+            ctx: ctx,
+            img: imgs["sky.png"]
+        })
+
+        //创建管道
+        for (var i = 0; i < 5; i++) {
+            var pioe = new Pioe({
+                ctx: ctx,
+                upimg: imgs["pipe2.png"],
+                dowmimg: imgs["pipe1.png"],
+                x: 400 + 200 * i,
+            })
+            roles.push(pioe)
+        }
+        // 创建陆地
+        for (var i = 0; i < 4; i++) {
+            var land = new Land({
+                ctx: ctx,
+                img: imgs["land.png"],
+                x: imgs["land.png"].width * i,
+            })
+            roles.push(land)
+        }
+
+
+
+
+
+
+        function render() {
+            //清除
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            this.ctx.beginPath();
+
+            // 绘制小鸟
+            sky.draw();
+            roles.forEach(function (role) {
+                role.draw();
+            });
+            bird.draw();
+            document.onmousedown = function () {
+                bird.v = -3.38 / 15;
+            }
+            //判断小鸟是否撞击管道
+
+
+            if (ctx.isPointInPath(bird.x + bird.birdW / 2, bird.y + bird.birdH / 2)) {
+                //游戏结束
+                flag = false;
+            }
+            if (bird.y > canvas.height - imgs["land.png"].height - 40 || bird.y < -10) {
+                flag = false;
+            }
+            if (flag) {
+                requestAnimationFrame(render);
+            }
+            
+            ctx.font='80px  宋体';
+            
+            ctx.fillText(sky.count, 100, 100);
+            ctx.strokeStyle='red';
+
+        }
+        render();
+
+
+    })
+
+    function loadImages(imgNames, callback) {
+        var imgs = {}
+        var count = 0;
+        for (var i = 0; i < imgNames.length; i++) {
+            var img = new Image();
+            img.src = 'imgs/' + imgNames[i];
+            imgs[imgNames[i]] = img;
+            img.onload = function () {
+                count++;
+                if (count == imgNames.length) {
+                    callback(imgs);
+                }
+            }
+        }
+    }
+    //将角度转出弧度
+    function convertAngle(angle) {
+        // PI:180 = ?(弧度) : 角度
+        // 弧度 = PI/180 * 角度
+        return Math.PI / 180 * angle;
+    }
+
+    // setInterval(function () {  
+    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //     bird.draw();
+
+    // },100)
+</script>
