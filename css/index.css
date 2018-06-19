@@ -1,0 +1,173 @@
+@charset "UTF-8";
+html,
+body {
+  height: 100%;
+  background: #f6f6f6;
+  font-family: "微软雅黑";
+  color: #333333;
+  font-size: 0.28rem;
+}
+
+.main .top {
+  height: 0.9rem;
+  line-height: 0.92rem;
+  font-size: 0.3rem;
+  text-align: center;
+  background: #fff;
+  margin-bottom: 0.11rem;
+}
+
+.main .title {
+  font-size: 0.25rem;
+  font-weight: 500;
+  padding-left: 0.2rem;
+}
+
+.main .title::before {
+  content: " ";
+  position: absolute;
+  left: 0.2rem;
+  border: 0.04rem solid #4da7ee;
+  height: 0.32rem;
+}
+
+.main .commit {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.main .commit input {
+  width: 100%;
+  background: #007aff;
+  color: #fff;
+  height: 1rem;
+  line-height: 1rem;
+  font-size: 0.3rem;
+}
+
+.main .first .details {
+  height: 4rem;
+  background: #fff;
+  padding: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.main .first .content {
+  font-size: 0.2rem;
+  color: #656565;
+}
+
+.main .first .explain {
+  height: 5.5rem;
+  background: #fff;
+  padding: 0.2rem;
+}
+
+.main .first .full {
+  height: 2.2rem;
+  font-size: 0.22rem;
+  color: #656565;
+}
+
+.main .first .full .mui-checkbox.mui-left label,
+.main .first .full .mui-radio.mui-left label {
+  padding-left: 44px;
+}
+
+.main .first .full .checkbox1 {
+  left: 10px !important;
+}
+
+.main .second {
+  display: none;
+}
+
+.main .second .choose {
+  padding: 0.2rem;
+  background: #fff;
+  color: #656565;
+}
+
+.main .second .choose .active {
+  float: right;
+}
+
+.main .second .choose .active .mui-icon {
+  font-size: 0.24rem;
+}
+
+.main .second .choose .active span::before {
+  font-size: 0.3rem;
+  font-weight: 800;
+  margin-right: 0.05rem;
+}
+
+.main .second .number {
+  padding: 0.2rem;
+}
+
+.main .second .number .box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main .second .number li {
+  width: 49%;
+  height: 0.86rem;
+  line-height: 0.86rem;
+  background: #fff;
+  margin-bottom: 0.2rem;
+  text-align: center;
+  color: #333;
+  border-radius: 10px;
+}
+
+.main .third {
+  display: none;
+  color: #5c5c5c;
+}
+
+.main .third .result {
+  padding: 0.2rem;
+  background: #fff;
+  color: #656565;
+  margin-bottom: 0.18rem;
+}
+
+.main .third .result .result-num {
+  color: #5dadef;
+}
+
+.main .third .message {
+  background: #fff;
+  padding: 0.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.main .third .message .message-content {
+  padding-left: 0.2rem;
+}
+
+.main .third .message .message-content div {
+  margin-top: 0.3rem;
+}
+
+.main .third .message .message-content div span {
+  width: 20%;
+}
+
+.main .third .message .message-content div input {
+  width: 70%;
+  height: 0.4rem;
+}
+
+.main .third .message .message-content .location textarea {
+  margin-top: 0.3rem;
+  background: #e7f2fb;
+}
+
+.main .third .fullter input {
+  margin-top: 0.2rem;
+  background: #b4d7f2;
+}
