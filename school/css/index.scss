@@ -1,0 +1,162 @@
+@function rem( $px) {
+    @return $px*(1/100)*1rem;
+}
+
+html,
+body {
+    height: 100%;
+    background: #f6f6f6;
+    font-family: "微软雅黑";
+    color: #333333;
+    font-size: rem(28)
+}
+
+.main {
+    // 公共样式
+    .top {
+        height: rem(90);
+        line-height: rem( 92);
+        font-size: rem(30);
+        text-align: center;
+        background: #fff;
+        margin-bottom: rem( 11);
+    }
+    .title {
+        font-size: rem( 25);
+        font-weight: 500;
+        padding-left: rem(20);
+    }
+    .title::before {
+        content: " ";
+        position: absolute;
+        left: rem( 20);
+        border: rem(4) solid #4da7ee;
+        height: rem( 32);
+    }
+    .commit {
+        width: 100%;
+        padding: 0 10px;
+        input {
+            width: 100%;
+            background: #007aff;
+            color: #fff;
+            height: rem(100);
+            line-height: rem(100);
+            font-size: rem(30);
+        }
+    }
+    // 第一个页面
+    .first {
+        .details {
+            height: rem(400);
+            background: #fff;
+            padding: rem( 20);
+            margin-bottom: rem( 20);
+        }
+        .content {
+            font-size: rem(20);
+            color: #656565;
+        }
+        .explain {
+            height: rem(550);
+            background: #fff;
+            padding: rem(20);
+        }
+        .full {
+            height: rem(220);
+            font-size: rem(22);
+            color: #656565;
+            .mui-checkbox.mui-left label,
+            .mui-radio.mui-left label {
+                padding-left: 44px;
+            }
+            .checkbox1 {
+                left: 10px !important;
+            }
+        }
+    }
+    // 第二个页面
+    .second {
+        display: none;
+        .choose {
+            padding: rem( 20);
+            background: #fff;
+            color: #656565;
+            .active {
+                float: right;
+                .mui-icon {
+                    font-size: rem(24);
+                }
+                span::before {
+                    font-size: rem(30);
+                    font-weight: 800;
+                    margin-right: rem(5);
+                }
+            }
+        }
+        .number {
+            padding: rem(20);
+            .box {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            li {
+                width: 49%;
+                height: rem(86);
+                line-height: rem(86);
+                background: #fff;
+                margin-bottom: rem(20);
+                text-align: center;
+                color: #333;
+                border-radius: 10px;
+                // display: inline-block;
+            }
+        }
+    }
+    // 第三个页面
+    .third {
+        display: none;
+        color: #5c5c5c;
+        .result {
+            padding: rem( 20);
+            background: #fff;
+            color: #656565;
+            margin-bottom: rem(18);
+            .result-num {
+                color: #5dadef;
+            }
+        }
+        .message {
+            background: #fff;
+            padding: rem( 20);
+            margin-bottom: rem( 20);
+            .message-content {
+                padding-left: rem(20);
+                div {
+                    margin-top: rem(30);
+                    span {
+                        width: 20%;
+                    }
+                    input {
+                        width: 70%;
+                        height: rem(40)
+                    }
+                }
+                .location {
+                    textarea {
+                        margin-top: rem(30);
+                        background: #e7f2fb;
+                    }
+                }
+            }
+        }
+        .fullter {
+            input {
+                margin-top: rem(20);
+                ;
+                background: #b4d7f2;
+            }
+        }
+    }
+}
